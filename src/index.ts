@@ -135,8 +135,19 @@ server.tool("update_task", "Update an existing task", {
   milestoneId: z.number().int().optional().describe("The ID of the milestone"),
   statusId: z.string().optional().describe("The ID of the task status"),
 }, async (args) => {
-  const { taskId, ...body } = args;
-  return textResponse(await apiFetch(`/task/updateTask/${taskId}`, { method: "PUT", body: JSON.stringify(body) }));
+  const { taskId, taskName, ...rest } = args;
+  const body: Record<string, unknown> = { ...rest };
+  if (taskName !== undefined) body.name = taskName;
+  const res = await fetch(`https://back.teamcamp.app/api/v1/task/updateTask/${taskId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", apiKey: apiKey() },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(`Teamcamp API error ${res.status}: ${err.error}`);
+  }
+  return textResponse(await res.json());
 });
 
 server.tool("post_comment", "Post a new comment on a task", {
