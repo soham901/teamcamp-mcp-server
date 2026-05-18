@@ -109,7 +109,7 @@ server.tool("get_task", "Get task details by ID", {
 
 server.tool("create_task", "Create a new task in a project", {
   projectId: z.string().describe("The ID of the project"),
-  name: z.string().optional().describe("The name of the task"),
+  taskName: z.string().optional().describe("The name of the task"),
   description: z.string().optional().describe("Description of the task"),
   priority: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional().describe("Priority: 0=No Priority, 1=Urgent, 2=High, 3=Medium, 4=Low"),
   dueDate: z.string().optional().describe("Due date (yyyy-MM-dd)"),
@@ -125,7 +125,7 @@ server.tool("create_task", "Create a new task in a project", {
 server.tool("update_task", "Update an existing task", {
   taskId: z.string().min(10).describe("The unique identifier of the task"),
   projectId: z.string().optional().describe("The ID of the project"),
-  name: z.string().optional().describe("The name of the task"),
+  taskName: z.string().optional().describe("The name of the task"),
   description: z.string().optional().describe("Description of the task"),
   priority: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3), z.literal(4)]).optional().describe("Priority: 0=No Priority, 1=Urgent, 2=High, 3=Medium, 4=Low"),
   dueDate: z.string().optional().describe("Due date (yyyy-MM-dd)"),
