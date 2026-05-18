@@ -1,5 +1,7 @@
 # Teamcamp MCP Server
 
+> **Unofficial** - This project is not affiliated with, endorsed by, or maintained by Teamcamp.
+
 MCP server that exposes the [Teamcamp API](https://api.teamcamp.app) as tools for any MCP client (Claude Code, opencode, Cursor, etc.).
 
 ## Tools
@@ -42,7 +44,7 @@ MCP server that exposes the [Teamcamp API](https://api.teamcamp.app) as tools fo
 
 - [Node.js](https://nodejs.org/) >= 18
 - [pnpm](https://pnpm.io/) (or npm/yarn)
-- A Teamcamp API key — get one at [dash.teamcamp.app/settings/apikey](https://dash.teamcamp.app/settings/apikey)
+- A Teamcamp API key - get one at [dash.teamcamp.app/settings/apikey](https://dash.teamcamp.app/settings/apikey)
 
 ## Installation
 
@@ -126,7 +128,7 @@ Add to `~/.config/opencode/opencode.json`:
 
 ### Cursor / others
 
-Same pattern — command `teamcamp-mcp-server` with arg `serve` and `TEAMCAMP_API_KEY` env var.
+Same pattern - command `teamcamp-mcp-server` with arg `serve` and `TEAMCAMP_API_KEY` env var.
 
 > If you haven't installed globally, use `npx teamcamp-mcp-server serve` instead, or provide the full path to `dist/index.js`.
 
