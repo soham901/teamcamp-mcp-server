@@ -98,11 +98,11 @@ Add to `~/.config/opencode/opencode.json`:
 
 ```json
 {
-  "mcpServers": {
+  "mcp": {
     "teamcamp": {
-      "command": "teamcamp-mcp-server",
-      "args": ["serve"],
-      "env": {
+      "type": "local",
+      "command": ["teamcamp-mcp-server", "serve"],
+      "environment": {
         "TEAMCAMP_API_KEY": "your_key_here"
       }
     }
